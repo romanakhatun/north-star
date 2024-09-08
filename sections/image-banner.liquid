@@ -1,0 +1,115 @@
+{{ 'image-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="Banner-{{ section.id }} banner">
+  {%- if section.settings.image != blank -%}
+    {{ section.settings.image | img_url: 'master' | img_tag }}
+  {%- endif -%}
+
+  <div class="banner__content">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'heading' -%}
+          <h1 class="banner__heading">{{ block.settings.heading }}</h1>
+        {%- when 'text' -%}
+          <div class="banner__text">
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {%- when 'buttons' -%}
+          <div class="banner__button">
+            {%- if block.settings.button_label != blank -%}
+              <a
+                {% if block.settings.button_link == blank %}
+                  role="link" aria-disabled="true"
+                {% else %}
+                  href="{{ block.settings.button_link }}"
+                {% endif %}
+              >
+                {{ block.settings.button_label }}
+              </a>
+            {%- endif -%}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Banner",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "image"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "heading",
+      "type": "heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "html",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Luxury fashion & Accessories"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Ut elit tellus, luctus nec ullamcorper mattis."
+        }
+      ]
+    },
+    {
+      "name": "buttons",
+      "type": "buttons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Banner",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

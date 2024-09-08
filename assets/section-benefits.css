@@ -1,0 +1,11 @@
+.benefit {
+  margin: 70px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(149px, 1fr));
+  row-gap: 30px;
+  column-gap: 42px;
+}
+.benefit__content {
+  max-width: 233px;
+  justify-self: right;
+}

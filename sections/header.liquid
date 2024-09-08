@@ -1,0 +1,52 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+
+<header>
+  <a href="#" class="logo">
+    {%- if settings.logo -%}
+      {{ settings.logo | img_url: 'medium' | img_tag }}
+    {%- endif -%}
+  </a>
+
+  <div class="shoipping_icon">
+    <div class="search_icon">{%- render 'icon-search' -%}</div>
+    <div>{%- render 'icon-shopping-bag' -%}</div>
+  </div>
+  <nav>
+    <a class="open_menu" href="#">
+      {% render 'icon-menu' %}
+    </a>
+    <ul class="menu">
+      <li class="close_menu_wrap">
+        <a class="close_menu" href="#">
+          {% render 'icon-close' %}
+        </a>
+      </li>
+
+      {%- render 'header-item-list' -%}
+    </ul>
+  </nav>
+</header>
+
+{%- javascript -%}
+  //Main Menu
+  const menuBtn = document.querySelector('nav .menu');
+  const openBtn = document.querySelector('.open_menu');
+  const closeBtn = document.querySelector('.close_menu');
+
+  openBtn.addEventListener('click', () => {
+    menuBtn.classList.add('open');
+  });
+  closeBtn.addEventListener('click', () => {
+    menuBtn.classList.remove('open');
+  });
+
+  ///
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('.sub_menu').forEach((el) => {
+      if (el !== event.target) el.classList.remove('open_sub_menu');
+    });
+    if (event.target.matches('.dropbtn')) {
+      event.target.closest('.dropdown').querySelector('.sub_menu').classList.toggle('open_sub_menu');
+    }
+  });
+{%- endjavascript -%}

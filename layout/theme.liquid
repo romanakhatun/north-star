@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NorthStar</title>
+    <style>
+      {{ settings.type_body_font | font_face: font_display: 'swap'}}
+
+
+      body * {
+        font-family: {{ settings.type_body_font.family }}
+      }
+    </style>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    {% sections 'header-group' %}
+    {{ content_for_layout }}
+  </body>
+</html>

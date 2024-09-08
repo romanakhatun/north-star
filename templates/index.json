@@ -1,0 +1,82 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_QA3TFA": {
+          "type": "heading",
+          "settings": {
+            "heading": "stylist picks  beat <br> the heat"
+          }
+        },
+        "buttons_kp6VUp": {
+          "type": "buttons",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify:\/\/collections"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QA3TFA",
+        "buttons_kp6VUp"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/img_1.png"
+      }
+    },
+    "section_benefits_LFwqJc": {
+      "type": "section-benefits",
+      "blocks": {
+        "benefit_kN4GKX": {
+          "type": "benefit",
+          "settings": {
+            "title": "Free Shipping",
+            "desc": "<p>Enjoy free shipping on all orders above $100<\/p>"
+          }
+        },
+        "benefit_bVAkKT": {
+          "type": "benefit",
+          "settings": {
+            "title": "SUPPORT 24\/7",
+            "desc": "<p>Our support team is there to help you for queries<\/p>"
+          }
+        },
+        "benefit_HDmHUe": {
+          "type": "benefit",
+          "settings": {
+            "title": "30 DAYS RETURN",
+            "desc": "<p>Simply return it within 30 days for an exchange.<\/p>"
+          }
+        },
+        "benefit_Ffgnec": {
+          "type": "benefit",
+          "settings": {
+            "title": "100% PAYMENT SECURE",
+            "desc": "<p>Our payments are secured with 256 bit encryption<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_kN4GKX",
+        "benefit_bVAkKT",
+        "benefit_HDmHUe",
+        "benefit_Ffgnec"
+      ],
+      "settings": {
+      }
+    },
+    "main_collection_MULnKm": {
+      "type": "main-collection",
+      "settings": {
+        "collection": "frontpage",
+        "products_to_show": 5
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "section_benefits_LFwqJc",
+    "main_collection_MULnKm"
+  ]
+}

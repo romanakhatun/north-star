@@ -1,0 +1,38 @@
+{%- for block in section.blocks -%}
+  {%- if block.type == 'link_list' -%}
+    {{ block.settings.heading }}
+  {%- endif -%}
+{%- endfor -%}
+
+{% schema %}
+{
+  "name": "footer",
+  "tag": "section",
+  "class": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Link List",
+      "type": "link_list",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Link Title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "footer",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,28 @@
+{% comment %}
+  {%- for product in section.settings.product -%}
+
+  {%- endfor -%}
+{% endcomment %}
+
+<h1>{{ section.settings.product.title }}</h1>
+
+{% schema %}
+{
+  "name": "product",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    }
+  ],
+  "presets": [
+    {
+      "name": "product",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
